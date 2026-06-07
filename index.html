@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Richmond Paws | Professional Dog Walking by Moein</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:    #0f1117;
+    --paper:  #f7f5f0;
+    --cream:  #ede9e0;
+    --gold:   #c9a84c;
+    --gold2:  #e8c97a;
+    --mist:   #8a8f9e;
+    --white:  #ffffff;
+    --border: rgba(201,168,76,0.25);
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ink);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(15,17,23,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--mist);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--ink) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold2) !important; color: var(--ink) !important; }
+
+  .btn-email:hover { background: rgba(201,168,76,0.1) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 4rem;
+    padding-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+  }
+
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    padding-right: 4rem;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-eyebrow-line {
+    width: 36px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-eyebrow span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.6rem;
+    color: var(--white);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.62);
+    max-width: 420px;
+    margin-bottom: 2.8rem;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold2);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--gold); }
+
+  .btn-ghost::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  /* hero right – visual panel */
+  .hero-right {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    max-width: 340px;
+    width: 100%;
+    position: relative;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 2rem; right: 2rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-dog-emoji {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1.5rem;
+    animation: subtle-float 4s ease-in-out infinite;
+  }
+
+  @keyframes subtle-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: var(--white);
+  }
+
+  .hero-card p {
+    font-size: 0.9rem;
+    color: var(--mist);
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    gap: 1rem;
+  }
+
+  .stat { text-align: center; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--mist);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 6rem 4rem;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-label-line {
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-label span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+
+  .section-heading em { font-style: italic; color: var(--gold); }
+
+  .section-body {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 480px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-frame {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .about-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 2rem; right: 2rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .about-emoji { font-size: 4rem; display: block; margin-bottom: 1.2rem; }
+
+  .about-name-tag {
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 2px;
+    display: inline-block;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-quote {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--mist);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .about-right { }
+
+  .about-right p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .about-right p:last-child { margin-bottom: 0; }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2rem;
+  }
+
+  .tag {
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: #0a0c12;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .services-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .service-item {
+    background: #0a0c12;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.25s;
+  }
+
+  .service-item:hover {
+    background: rgba(201,168,76,0.05);
+  }
+
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .service-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 0.7rem;
+  }
+
+  .service-item p {
+    font-size: 0.88rem;
+    color: var(--mist);
+    line-height: 1.7;
+  }
+
+  /* ── PRICING ── */
+  #pricing {
+    background: var(--ink);
+  }
+
+  .pricing-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .pricing-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .price-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.8rem;
+    position: relative;
+    transition: border-color 0.25s, transform 0.2s;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .price-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .price-card.featured {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.03));
+    border-color: var(--gold);
+  }
+
+  .price-card.featured::before {
+    content: 'BEST VALUE';
+    position: absolute;
+    top: -1px; right: 2rem;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .price-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .price-amount sup {
+    font-size: 1.4rem;
+    vertical-align: super;
+    color: var(--gold);
+  }
+
+  .price-currency {
+    font-size: 0.82rem;
+    color: var(--mist);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.8rem;
+  }
+
+  .price-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 1.8rem;
+  }
+
+  .price-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .price-features li {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .price-features li::before {
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── WHY ME ── */
+  #why {
+    background: #0a0c12;
+    border-top: 1px solid var(--border);
+  }
+
+  .why-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .why-item {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1.2rem;
+    align-items: start;
+  }
+
+  .why-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    padding-top: 0.15rem;
+  }
+
+  .why-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .why-item p {
+    font-size: 0.88rem;
+    color: var(--mist);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink);
+  }
+
+  .contact-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: border-color 0.2s;
+  }
+
+  .contact-info-item:hover { border-color: var(--gold); }
+
+  .contact-info-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .contact-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .contact-info-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  .contact-info-value {
+    font-size: 0.92rem;
+    color: var(--white);
+  }
+
+  .contact-right { }
+
+  .contact-cta-box {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    background: rgba(201,168,76,0.04);
+    position: relative;
+  }
+
+  .contact-cta-box::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 2rem; right: 2rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .contact-cta-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--white);
+  }
+
+  .contact-cta-box p {
+    font-size: 0.9rem;
+    color: var(--mist);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .free-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a0c12;
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--mist);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; text-align: center; }
+    .hero-left { padding-right: 0; }
+    .hero-eyebrow { justify-content: center; }
+    .hero-desc { margin: 0 auto 2.5rem; }
+    .hero-actions { justify-content: center; }
+    .hero-right { margin-top: 3rem; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .services-header { grid-template-columns: 1fr; gap: 1rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .pricing-header { grid-template-columns: 1fr; gap: 1rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .why-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Richmond<span>Paws</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Walk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Professional Dog Walking</span>
+    </div>
+    <h1>Your dog<br>deserves the<br><em>best walks.</em></h1>
+    <p class="hero-desc">Hi, I'm Moein — a passionate 13-year-old dog lover offering dedicated, reliable dog walking in your neighbourhood. Every walk is an adventure your pup will love.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Walk</a>
+      <a href="#services" class="btn-ghost">See Services</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card reveal">
+      <span class="hero-dog-emoji">🐕</span>
+      <h3>Now Accepting Clients</h3>
+      <p>Be among the first to experience Richmond Paws — and enjoy a complimentary meet-and-greet.</p>
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Dedicated</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">On</span>
+          <span class="stat-label">Time, Every Time</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">📸</span>
+          <span class="stat-label">Photo Updates</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-frame">
+      <span class="about-emoji">🧒</span>
+      <div class="about-name-tag">Moein · Dog Walker</div>
+      <p class="about-quote">"I treat every dog as if they were my own — with patience, love, and a great walk."</p>
+    </div>
+  </div>
+
+  <div class="about-right reveal" style="transition-delay:0.15s">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span>About Me</span>
+    </div>
+    <h2 class="section-heading">A dog lover,<br><em>first and foremost.</em></h2>
+    <p>I'm Moein, a 13-year-old from the neighbourhood with a genuine passion for dogs. Growing up around them has taught me how to read their energy, keep them calm, and make sure every walk is something they look forward to.</p>
+    <p>I bring reliability, punctuality, and real care to every session. You'll always get a photo update mid-walk, and your dog will always come home happy and tired.</p>
+    <div class="about-tags">
+      <span class="tag">Punctual</span>
+      <span class="tag">Responsible</span>
+      <span class="tag">Dog Lover</span>
+      <span class="tag">Photo Updates</span>
+      <span class="tag">Local</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div class="reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span>Services</span>
+        </div>
+        <h2 class="section-heading">What I<br><em>offer.</em></h2>
+      </div>
+      <div class="section-body reveal" style="transition-delay:0.1s">
+        Every service is designed around one goal: keeping your dog healthy, happy, and well-exercised. No shortcuts, no distractions — just quality time with your pup.
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-item reveal">
+        <span class="service-num">01</span>
+        <span class="service-icon">🦮</span>
+        <h3>Daily Walks</h3>
+        <p>Structured 30 or 60-minute walks through safe local routes. Fresh air, great exercise, and plenty of sniff breaks.</p>
+      </div>
+      <div class="service-item reveal" style="transition-delay:0.1s">
+        <span class="service-num">02</span>
+        <span class="service-icon">🌦️</span>
+        <h3>Weekend Walks</h3>
+        <p>Available on weekends too — because your dog doesn't take days off. Rain or shine, I'll be there.</p>
+      </div>
+      <div class="service-item reveal" style="transition-delay:0.2s">
+        <span class="service-num">03</span>
+        <span class="service-icon">📸</span>
+        <h3>Walk Updates</h3>
+        <p>Receive photo updates during every walk so you can see exactly how much fun your dog is having.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <div class="reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span>Pricing</span>
+        </div>
+        <h2 class="section-heading">Simple,<br><em>honest pricing.</em></h2>
+      </div>
+      <div class="section-body reveal" style="transition-delay:0.1s">
+        No hidden fees, no complicated packages. Choose the walk length that works best for your dog and your schedule.
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <span class="price-label">30-Min Solo Walk</span>
+        <div class="price-amount"><sup>$</sup>12<span style="font-size:1.6rem">.99</span></div>
+        <div class="price-currency">CAD per walk</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>One-on-one with your dog</li>
+          <li>Safe neighbourhood routes</li>
+          <li>Photo update included</li>
+          <li>Ideal for smaller or shy dogs</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured reveal" style="transition-delay:0.1s">
+        <span class="price-label">60-Min Solo Walk</span>
+        <div class="price-amount"><sup>$</sup>18<span style="font-size:1.6rem">.99</span></div>
+        <div class="price-currency">CAD per walk</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Full hour, one-on-one attention</li>
+          <li>Extended route & more sniff stops</li>
+          <li>Multiple photo updates</li>
+          <li>Great for high-energy dogs</li>
+        </ul>
+      </div>
+
+      <div class="price-card reveal" style="transition-delay:0.2s">
+        <span class="price-label">30-Min Group Walk</span>
+        <div class="price-amount"><sup>$</sup>8<span style="font-size:1.6rem">.99</span></div>
+        <div class="price-currency">CAD per walk</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Walk with other neighbourhood dogs</li>
+          <li>Great for socialisation</li>
+          <li>Photo update included</li>
+          <li>Budget-friendly option</li>
+        </ul>
+      </div>
+
+      <div class="price-card reveal" style="transition-delay:0.3s">
+        <span class="price-label">60-Min Group Walk</span>
+        <div class="price-amount"><sup>$</sup>14<span style="font-size:1.6rem">.99</span></div>
+        <div class="price-currency">CAD per walk</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Full hour with friendly dog companions</li>
+          <li>Longer route & more exploration</li>
+          <li>Multiple photo updates</li>
+          <li>Best value for social pups</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WHY ME -->
+<section id="why">
+  <div class="why-inner">
+    <div class="reveal">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span>Why Choose Me</span>
+      </div>
+      <h2 class="section-heading">What makes<br>me <em>different.</em></h2>
+      <p class="section-body" style="margin-top:1rem;">I'm not just looking for a side job — I genuinely love dogs and want to build a real reputation in this neighbourhood, one happy pup at a time.</p>
+    </div>
+
+    <div class="why-list">
+      <div class="why-item reveal" style="transition-delay:0.05s">
+        <span class="why-num">01</span>
+        <div>
+          <h4>Truly Passionate</h4>
+          <p>This isn't just a business — I grew up with dogs and genuinely care about their wellbeing. Your dog will feel the difference.</p>
+        </div>
+      </div>
+      <div class="why-item reveal" style="transition-delay:0.1s">
+        <span class="why-num">02</span>
+        <div>
+          <h4>Always On Time</h4>
+          <p>I understand your schedule matters. I commit to showing up when I say I will, every single time.</p>
+        </div>
+      </div>
+      <div class="why-item reveal" style="transition-delay:0.15s">
+        <span class="why-num">03</span>
+        <div>
+          <h4>Transparent Communication</h4>
+          <p>Photo updates every walk, and I'm always reachable if you have questions or need to reschedule.</p>
+        </div>
+      </div>
+      <div class="why-item reveal" style="transition-delay:0.2s">
+        <span class="why-num">04</span>
+        <div>
+          <h4>Free Meet & Greet</h4>
+          <p>Before the first walk, I offer a complimentary meet-and-greet so your dog gets comfortable with me first.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label reveal">
+        <div class="section-label-line"></div>
+        <span>Contact</span>
+      </div>
+      <h2 class="section-heading reveal" style="transition-delay:0.05s">Let's get<br>your dog <em>walking.</em></h2>
+      <div class="contact-info-list">
+        <div class="contact-info-item reveal" style="transition-delay:0.1s">
+          <span class="contact-info-icon">📱</span>
+          <div class="contact-info-text">
+            <span class="contact-info-label">Phone</span>
+            <span class="contact-info-value">647 450 4123</span>
+          </div>
+        </div>
+        <div class="contact-info-item reveal" style="transition-delay:0.15s">
+          <span class="contact-info-icon">📧</span>
+          <div class="contact-info-text">
+            <span class="contact-info-label">Email</span>
+            <span class="contact-info-value">Moeinrichmondpaws@gmail.com</span>
+          </div>
+        </div>
+        <div class="contact-info-item reveal" style="transition-delay:0.2s">
+          <span class="contact-info-icon">📍</span>
+          <div class="contact-info-text">
+            <span class="contact-info-label">Area Served</span>
+            <span class="contact-info-value">Gamble Rd to Tower Hill Rd</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right reveal" style="transition-delay:0.1s">
+      <div class="contact-cta-box">
+        <div class="free-badge">✦ Free Meet &amp; Greet</div>
+        <h3>Ready to book?</h3>
+        <p>Reach out and I'll get back to you within a few hours. We'll set up a free meet-and-greet before your dog's first walk — no commitment needed.</p>
+        <a href="tel:6474504123" class="btn-primary" style="display:block;text-align:center;margin-bottom:0.8rem;">📱 Call or Text: 647 450 4123</a>
+        <a href="mailto:Moeinrichmondpaws@gmail.com" class="btn-primary" style="display:block;text-align:center;background:transparent;border:1px solid var(--gold);color:var(--gold);">✉ Email Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Richmond<span>Paws</span></div>
+  <div class="footer-copy">© 2024 Moein · Richmond Paws · Professional Dog Walking · All rights reserved</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
